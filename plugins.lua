@@ -38,6 +38,11 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+  },
+
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -67,8 +72,63 @@ local plugins = {
       require("true-zen").setup()
     end,
     lazy = false
-  }
+  },
+  {
+    "nvim-lua/plenary.nvim"
+  },
+  {
+    'aca/emmet-ls',
+    config = function()
+      local lspconfig = require('lspconfig')
+      local configs = require('lspconfig/configs')
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+      lspconfig.emmet_ls.setup({
+        -- on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+        init_options = {
+          html = {
+            options = {
+              -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+              ["bem.enabled"] = true,
+            },
+          },
+        }
+      })
+    end,
+    lazy = false,
+  },
+
+  {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  },
+  {
+    "prettier/vim-prettier",
+    lazy = false,
+  },
+	{
+    "theprimeagen/harpoon",
+    lazy = false,
+  },
+	{
+    "mbbill/undotree",
+    lazy = false,
+  },
+  {
+    "tpope/vim-surround",
+    lazy = false,
+  },
+	{
+    "tpope/vim-fugitive",
+    lazy = false,
+  },
+  {
+    "tpope/vim-commentary",
+    lazy = false,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

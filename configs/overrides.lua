@@ -70,4 +70,19 @@ M.telescope = {
   },
 }
 
+local cmp = require "cmp"
+M.cmp = {
+  mapping = {
+    ["<CR>"] = cmp.mapping(function(fallback)
+      fallback()
+    end, { "i", "s" }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      fallback()
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      fallback()
+    end, { "i", "s" }),
+  }
+}
+
 return M

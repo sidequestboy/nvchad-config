@@ -7,6 +7,7 @@
 -- })
 
 vim.o.relativenumber = true;
+vim.o.colorcolumn = "80"
 
 -- global
 P = function(v)
