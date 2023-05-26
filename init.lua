@@ -7,6 +7,7 @@
 -- })
 vim.o.relativenumber = true;
 vim.o.colorcolumn = "80"
+vim.o.nrformats = vim.o.nrformats .. ",unsigned"
 vim.g.matchup_matchparen_enabled = 0
 
 -- global
