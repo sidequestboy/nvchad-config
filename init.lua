@@ -8,6 +8,8 @@
 vim.o.relativenumber = true;
 vim.o.colorcolumn = "80"
 vim.o.nrformats = vim.o.nrformats .. ",unsigned"
+vim.g['prettier#autoformat'] = 1
+vim.g['prettier#autoformat_require_pragma'] = 0
 vim.g.matchup_matchparen_enabled = 0
 
 -- global
