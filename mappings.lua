@@ -8,6 +8,12 @@ M.general = {
     ["<C-j>"] = { ":<C-U>TmuxNavigateDown<CR>", opts = { silent = true } },
     ["<C-k>"] = { ":<C-U>TmuxNavigateUp<CR>", opts = { silent = true } },
     ["<C-l>"] = { ":<C-U>TmuxNavigateRight<CR>", opts = { silent = true } },
+    ["<C-s>"] = {
+      function()
+        require("auto-session.session-lens").search_session()
+      end, opts = { silent = true }
+    },
+  },
   i = {
     ["<C-y>"] = { "<C-o><C-y>", opts = { silent = true } },
     ["<C-e>"] = { "<C-o><C-e>", opts = { silent = true } },

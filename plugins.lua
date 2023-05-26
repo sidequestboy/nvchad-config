@@ -114,6 +114,19 @@ local plugins = {
     lazy = false,
   },
   {
+
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup {}
+    end,
+    lazy = false,
+    session_lens = {
+      load_on_setup = true,
+      theme_conf = { border = true },
+      previewer = false,
+    },
+  },
+  {
     "prettier/vim-prettier",
     lazy = false,
   },
