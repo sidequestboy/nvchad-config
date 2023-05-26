@@ -77,11 +77,23 @@ M.cmp = {
       fallback()
     end, { "i", "s" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      fallback()
-    end, { "i", "s" }),
+      if cmp.visible() then
+        cmp.confirm {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        }
+      elseif require "luasnip".expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+      else
+        fallback()
+      end
+    end, { "i", "s", }),
+    -- ["<Tab>"] = cmp.mapping(function(fallback)
+    --   fallback()
+    -- end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       fallback()
-    end, { "i", "s" }),
+    end, { "i", "s", }),
   }
 }
 
