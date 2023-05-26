@@ -5,9 +5,9 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
-
 vim.o.relativenumber = true;
 vim.o.colorcolumn = "80"
+vim.g.matchup_matchparen_enabled = 0
 
 -- global
 P = function(v)

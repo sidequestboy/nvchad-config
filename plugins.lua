@@ -106,6 +106,14 @@ local plugins = {
     config = function() require("nvim-autopairs").setup {} end
   },
   {
+    "andymass/vim-matchup",
+    lazy = false,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+  },
+  {
     "prettier/vim-prettier",
     lazy = false,
   },
