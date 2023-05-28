@@ -13,6 +13,7 @@ M.general = {
         require("auto-session.session-lens").search_session()
       end, opts = { silent = true }
     },
+    ["<leader>gg"] = { "<cmd>0G<cr>", opts = { silent = true } },
   },
   i = {
     ["<C-y>"] = { "<C-o><C-y>", opts = { silent = true } },
