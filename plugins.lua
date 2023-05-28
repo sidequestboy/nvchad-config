@@ -117,7 +117,9 @@ local plugins = {
 
     "rmagatti/auto-session",
     config = function()
-      require("auto-session").setup {}
+      require("auto-session").setup {
+        auto_session_create_enabled = false,
+      }
     end,
     lazy = false,
     session_lens = {
