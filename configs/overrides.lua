@@ -64,31 +64,32 @@ M.telescope = {
   },
 }
 
-local cmp = require "cmp"
 M.cmp = {
   mapping = {
-    ["<CR>"] = cmp.mapping(function(fallback)
-      fallback()
-    end, { "i", "s" }),
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<CR>"] = function(callback)
+      callback()
+    end,
+    ["<Tab>"] = require("cmp").mapping(function(fallback)
+      local cmp = require("cmp")
       if cmp.visible() then
         cmp.confirm {
-          behavior = cmp.ConfirmBehavior.Replace,
+          behavior = cmp.ConfirmBehavior.Insert,
           select = false,
         }
-      elseif require "luasnip".expand_or_jumpable() then
+      elseif require("luasnip").expand_or_jumpable() then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
       else
         fallback()
       end
     end, { "i", "s", }),
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   fallback()
-    -- end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      fallback()
-    end, { "i", "s", }),
-  }
+    ["<S-Tab>"] = require("cmp").mapping(function(fallback)
+      if require("luasnip").jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+      else
+        fallback()
+      end
+    end, { "i", }),
+  },
 }
 
 return M
