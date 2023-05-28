@@ -45,6 +45,14 @@ local plugins = {
 
   -- Install a plugin
   {
+    "folke/twilight.nvim",
+    lazy = false,
+  },
+  {
+    "folke/zen-mode.nvim",
+    lazy = false,
+  },
+  {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
