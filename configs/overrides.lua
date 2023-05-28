@@ -57,12 +57,6 @@ M.nvimtree = {
 }
 
 M.telescope = {
-  defaults = {
-    prompt_prefix = " %  ",
-    -- mappings = {
-    --   ["<tab>"] = "select_default",
-    -- }
-  },
   pickers = {
     buffers = {
       sort_mru = true,
