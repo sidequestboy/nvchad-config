@@ -66,8 +66,8 @@ M.telescope = {
 
 M.cmp = {
   mapping = {
-    ["<CR>"] = function(callback)
-      callback()
+    ["<CR>"] = function(fallback)
+      fallback()
     end,
     ["<Tab>"] = require("cmp").mapping(function(fallback)
       local cmp = require("cmp")
