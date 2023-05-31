@@ -15,6 +15,13 @@ local plugins = {
           require "custom.configs.null-ls"
         end,
       },
+      {
+        "folke/neodev.nvim",
+        opts = {},
+        config = function()
+          require("neodev").setup({})
+        end,
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
